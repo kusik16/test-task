@@ -5,13 +5,13 @@
     --tooltip-arrow-size: 6px;
 }
 
-.tooltip-Wrapper {
+.tooltip-wrapper {
     display: inline-block;
     position: relative;
     width: 100%;
 }
 
-.tooltip-Tip {
+.tooltip-tip {
     position: absolute;
     border-radius: 4px;
     left: 60%;
@@ -28,10 +28,10 @@
     white-space: nowrap;
 }
 
-.tooltip-Tip.bottom {
+.tooltip-tip.bottom {
     bottom: calc(var(--tooltip-margin) * -1.5);
 }
-.tooltip-Tip.bottom::before {
+.tooltip-tip.bottom::before {
     bottom: 100%;
     border-bottom-color: var(--tooltip-background-color);
 }
