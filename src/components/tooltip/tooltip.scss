@@ -1,0 +1,37 @@
+:root {
+    --tooltip-text-color: white;
+    --tooltip-background-color: black;
+    --tooltip-margin: 30px;
+    --tooltip-arrow-size: 6px;
+}
+
+.tooltip-Wrapper {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.tooltip-Tip {
+    position: absolute;
+    border-radius: 4px;
+    left: 60%;
+    transform: translateX(-50%);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: var(--tooltip-text-color);
+    background: var(--tooltip-background-color);
+    font-size: 16px;
+    line-height: 26px;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+.tooltip-Tip.bottom {
+    bottom: calc(var(--tooltip-margin) * -1.5);
+}
+.tooltip-Tip.bottom::before {
+    bottom: 100%;
+    border-bottom-color: var(--tooltip-background-color);
+}

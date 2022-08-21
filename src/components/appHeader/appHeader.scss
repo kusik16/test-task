@@ -1,0 +1,35 @@
+@import "../../styles/variables.scss";
+
+.app {
+    &__header {
+        max-width: 2560px;
+        height: 60px;
+        background-color: #fff;
+        &-content {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1170px;
+            @media (max-width: 1024px) {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+            @media (max-width: 768px) {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+            @media (max-width: 360px) {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+    }
+    &__menu {
+        display: flex;
+        &-btn {
+            margin-left: 10px;
+        }
+    }
+}

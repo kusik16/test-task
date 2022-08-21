@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+.modern-radio-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.radio-outer-circle {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 2px solid $secondary-color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    transition: all 0.1s linear;
+}
+
+.radio-inner-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $secondary-color;
+    transition: all 0.1s linear;
+}
+.unselected {
+    border: 1px solid #d0cfcf;
+}
+.unselected-circle {
+    width: 0;
+    height: 0;
+}
