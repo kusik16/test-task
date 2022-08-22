@@ -1,11 +1,11 @@
-import { Suspense, useState, useRef } from "react";
+import { Suspense, lazy, useState, useRef } from "react";
 import AppBanner from "../appBanner/AppBanner";
 
 import AppHeader from "../appHeader/AppHeader";
 import Spinner from "../spinner/Spinner";
 
-import UserList from "../userList/UserList";
-import SignUpForm from "../signUpForm/SignUpForm";
+const UserList = lazy(() => import("../userList/UserList"));
+const SignUpForm = lazy(() => import("../signUpForm/SignUpForm"));
 
 const App = () => {
     const [userList, setUserList] = useState([]);
