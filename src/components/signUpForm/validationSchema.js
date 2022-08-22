@@ -2,6 +2,8 @@ import * as Yup from "yup";
 
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg"];
 
+const phoneRegExp = /\+?\d+/;
+
 const validationSchema = Yup.object({
     userName: Yup.string()
         .min(2, "Username should contain 2-60 characters")
@@ -11,6 +13,10 @@ const validationSchema = Yup.object({
         .email("Invalid email")
         .required("Email is required"),
     userPhone: Yup.string()
+        .matches(
+            phoneRegExp,
+            "Number should be valid and start with code of Ukraine +380"
+        )
         .test(
             "Format validation",
             "Number should be valid and start with code of Ukraine +380",

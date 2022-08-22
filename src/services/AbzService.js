@@ -1,13 +1,12 @@
 import { useHttp } from "../hooks/http.hook";
-import { useState } from "react";
 
 const useAbzService = () => {
     const { request, clearError, process, setProcess } = useHttp();
-    const [token, setToken] = useState("");
 
     const _apiBase = "https://frontend-test-assignment-api.abz.agency/api/v1/",
         _baseCount = 6,
-        _basePage = 1;
+        _basePage = 1,
+        token = localStorage.getItem("token") || "";
 
     const getAllUsers = async (page = _basePage, count = _baseCount) => {
         const res = await request(
@@ -28,7 +27,7 @@ const useAbzService = () => {
 
     const generateToken = async () => {
         const res = await request(`${_apiBase}token`);
-        setToken(res.token);
+        localStorage.setItem("token", res.token);
         return res.token;
     };
 
