@@ -1,11 +1,10 @@
-import { Suspense, lazy, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import AppBanner from "../appBanner/AppBanner";
 
 import AppHeader from "../appHeader/AppHeader";
-import Spinner from "../spinner/Spinner";
 
-const UserList = lazy(() => import("../userList/UserList"));
-const SignUpForm = lazy(() => import("../signUpForm/SignUpForm"));
+import UserList from "../userList/UserList";
+import SignUpForm from "../signUpForm/SignUpForm";
 
 const App = () => {
     const [userList, setUserList] = useState([]);
@@ -32,24 +31,22 @@ const App = () => {
                         handleClickRef={handleClickRef}
                         signUpRef={signUpRef}
                     />
-                    <Suspense fallback={<Spinner />}>
-                        <UserList
-                            userList={userList}
-                            setUserList={setUserList}
-                            usersRef={usersRef}
-                            submitForm={submitForm}
-                            page={page}
-                            setPage={setPage}
-                        />
-                        <SignUpForm
-                            userList={userList}
-                            setUserList={setUserList}
-                            signUpRef={signUpRef}
-                            submitForm={submitForm}
-                            setSubmitForm={setSubmitForm}
-                            setPage={setPage}
-                        />
-                    </Suspense>
+                    <UserList
+                        userList={userList}
+                        setUserList={setUserList}
+                        usersRef={usersRef}
+                        submitForm={submitForm}
+                        page={page}
+                        setPage={setPage}
+                    />
+                    <SignUpForm
+                        userList={userList}
+                        setUserList={setUserList}
+                        signUpRef={signUpRef}
+                        submitForm={submitForm}
+                        setSubmitForm={setSubmitForm}
+                        setPage={setPage}
+                    />
                 </main>
             </div>
         </>
