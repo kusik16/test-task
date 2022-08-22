@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import useAbzService from "../../services/AbzService";
 import Spinner from "../spinner/Spinner";
@@ -70,50 +69,44 @@ const UserList = ({
     const renderItems = (arr) => {
         const items = arr.map((item, i) => {
             return (
-                <CSSTransition
+                <li
                     key={item.id}
-                    timeout={500}
-                    classNames='list__item'>
-                    <li
-                        className='list__item'
-                        tabIndex={0}
-                        ref={(el) => (itemRefs.current[i] = el)}>
-                        <img
-                            onError={(e) => (e.target.src = photoCover)}
-                            src={item.photo}
-                            alt={item.name}
-                        />
-                        <Tooltip content={item.name} direction='bottom'>
-                            <div className='list__name'>{item.name}</div>
-                        </Tooltip>
-                        <div className='list__description'>
-                            <div
-                                className='list__description-item'
-                                data-placement='bottom'>
-                                {item.position}
-                            </div>
-                            <Tooltip
-                                className='list__description-item'
-                                content={item.email}
-                                direction='bottom'>
-                                <div className='list__description-item'>
-                                    {item.email}
-                                </div>
-                            </Tooltip>
-                            <div className='list__description-item'>
-                                {item.phone}
-                            </div>
+                    className='list__item'
+                    tabIndex={0}
+                    ref={(el) => (itemRefs.current[i] = el)}>
+                    <img
+                        onError={(e) => (e.target.src = photoCover)}
+                        src={item.photo}
+                        alt={item.name}
+                    />
+                    <Tooltip content={item.name} direction='bottom'>
+                        <div className='list__name'>{item.name}</div>
+                    </Tooltip>
+                    <div className='list__description'>
+                        <div
+                            className='list__description-item'
+                            data-placement='bottom'>
+                            {item.position}
                         </div>
-                    </li>
-                </CSSTransition>
+                        <Tooltip
+                            className='list__description-item'
+                            content={item.email}
+                            direction='bottom'>
+                            <div className='list__description-item'>
+                                {item.email}
+                            </div>
+                        </Tooltip>
+                        <div className='list__description-item'>
+                            {item.phone}
+                        </div>
+                    </div>
+                </li>
             );
         });
 
         return (
             <>
-                <ul className='list__grid'>
-                    <TransitionGroup component={null}>{items}</TransitionGroup>
-                </ul>
+                <ul className='list__grid'>{items}</ul>
                 <button
                     disabled={newItemLoading}
                     style={{ display: userEnded ? "none" : "block" }}
